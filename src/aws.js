@@ -67,11 +67,13 @@ async function startEc2Instance(label, githubRegistrationToken) {
         Ebs: {
           VolumeSize: config.input.rootVolumeSize,
           VolumeType: 'gp2', 
-          DeleteOnTermination: true 
+          DeleteOnTermination: true
         },
       },
     ],
   };
+
+  core.info(`Root volume size: ${config.input.rootVolumeSize}`)
 
   try {
     const result = await ec2.runInstances(params).promise();

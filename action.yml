@@ -78,6 +78,7 @@ inputs:
     description: >-
       Size of the root volume in Gb
     required: false
+    default: 16
 
 outputs:
   label:
