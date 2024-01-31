@@ -59,7 +59,7 @@ class Config {
         throw new Error(`Not all the required inputs are provided for the 'start' mode`);
       }
 
-      if (this.marketType?.length > 0 && this.input.marketType !== 'spot') {
+      if (this.marketType.length > 0 && this.input.marketType !== 'spot') {
         throw new Error(`Invalid 'market-type' input. Allowed values: spot.`);
       }
     } else if (this.input.mode === 'stop') {

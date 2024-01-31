@@ -65,7 +65,7 @@ async function startEc2Instance(label, githubRegistrationToken) {
       {
         DeviceName: '/dev/xvda',
         Ebs: {
-          VolumeSize: 16,
+          VolumeSize: config.input.rootVolumeSize,
           VolumeType: 'gp2', 
           DeleteOnTermination: true
         },
