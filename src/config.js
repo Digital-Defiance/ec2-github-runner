@@ -16,7 +16,12 @@ class Config {
       runnerHomeDir: core.getInput('runner-home-dir'),
       preRunnerScript: core.getInput('pre-runner-script'),
       marketType: core.getInput('market-type'),
+      rootVolumeSize: core.getInput('root-volume-size'),
     };
+
+    if (!this.input.rootVolumeSize){
+      this.input.rootVolumeSize = 8;
+    }
 
     const tags = JSON.parse(core.getInput('aws-resource-tags'));
     this.tagSpecifications = null;
