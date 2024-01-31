@@ -19,9 +19,10 @@ class Config {
       rootVolumeSize: core.getInput('root-volume-size'),
     };
 
+    core.info(`Root volume size: ${this.input.rootVolumeSize}`)
 
     if (!this.input.rootVolumeSize){
-      this.input.rootVolumeSize = 8;
+      this.input.rootVolumeSize = 16;
     }
 
     const tags = JSON.parse(core.getInput('aws-resource-tags'));
