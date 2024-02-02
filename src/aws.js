@@ -61,9 +61,22 @@ async function startEc2Instance(label, githubRegistrationToken) {
     IamInstanceProfile: { Name: config.input.iamRoleName },
     TagSpecifications: config.tagSpecifications,
     InstanceMarketOptions: buildMarketOptions(),
+    BlockDeviceMappings: [
+      {
+        DeviceName: '/dev/xvda',
+        Ebs: {
+          VolumeSize: config.input.rootVolumeSize,
+          VolumeType: 'gp2', 
+          DeleteOnTermination: true
+        },
+      },
+    ],
   };
 
+  
+
   try {
+    core.info(`Root volume size: ${config.input.rootVolumeSize}`)
     const result = await ec2.runInstances(params).promise();
     const ec2InstanceId = result.Instances[0].InstanceId;
     core.info(`AWS EC2 instance ${ec2InstanceId} is started`);

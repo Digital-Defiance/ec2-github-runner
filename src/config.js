@@ -16,7 +16,14 @@ class Config {
       runnerHomeDir: core.getInput('runner-home-dir'),
       preRunnerScript: core.getInput('pre-runner-script'),
       marketType: core.getInput('market-type'),
+      rootVolumeSize: core.getInput('root-volume-size'),
     };
+
+    
+
+    if (!this.input.rootVolumeSize){
+      this.input.rootVolumeSize = 16;
+    }
 
     const tags = JSON.parse(core.getInput('aws-resource-tags'));
     this.tagSpecifications = null;
@@ -52,7 +59,7 @@ class Config {
         throw new Error(`Not all the required inputs are provided for the 'start' mode`);
       }
 
-      if (this.marketType?.length > 0 && this.input.marketType !== 'spot') {
+      if (this.marketType && this.marketType.length > 0 && this.input.marketType !== 'spot') {
         throw new Error(`Invalid 'market-type' input. Allowed values: spot.`);
       }
     } else if (this.input.mode === 'stop') {
