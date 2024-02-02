@@ -1,3 +1,6 @@
+This project is a fork that I am maintaining, please check https://github.com/machulav/ec2-github-runner for the original repository.
+
+
 # On-demand self-hosted AWS EC2 runner for GitHub Actions
 
 ⚠️ If you like the project, please consider [supporting Ukraine](https://bit.ly/3KeY7dc) in a [war](https://en.wikipedia.org/wiki/2022_Russian_invasion_of_Ukraine) against russian occupants. Any help would be much appreciated!
