@@ -78,7 +78,12 @@ inputs:
     description: >-
       Size of the root volume in Gb
     required: false
-    default: 16
+    default: '16'
+  root-device-name:
+    description: >-
+      Root device name
+    required: false
+    default: '/dev/sda1'
 
 outputs:
   label:

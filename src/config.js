@@ -17,11 +17,14 @@ class Config {
       preRunnerScript: core.getInput('pre-runner-script'),
       marketType: core.getInput('market-type'),
       rootVolumeSize: core.getInput('root-volume-size'),
+      rootDeviceName: core.getInput('root-device-name')
     };
 
-    
+    if (!this.input.rootDeviceName) {
+      this.input.rootDeviceName = "/dev/sda1";
+    }
 
-    if (!this.input.rootVolumeSize){
+    if (!this.input.rootVolumeSize) {
       this.input.rootVolumeSize = 16;
     }
 

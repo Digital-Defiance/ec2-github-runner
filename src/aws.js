@@ -63,17 +63,17 @@ async function startEc2Instance(label, githubRegistrationToken) {
     InstanceMarketOptions: buildMarketOptions(),
     BlockDeviceMappings: [
       {
-        DeviceName: '/dev/xvda',
+        DeviceName: config.input.rootDeviceName,
         Ebs: {
           VolumeSize: config.input.rootVolumeSize,
-          VolumeType: 'gp2', 
+          VolumeType: 'gp2',
           DeleteOnTermination: true
         },
       },
     ],
   };
 
-  
+
 
   try {
     core.info(`Root volume size: ${config.input.rootVolumeSize}`)
